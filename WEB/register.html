@@ -1,0 +1,70 @@
+<!-- register.html (/register) -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosty OS - Registro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0B0F19',
+                        'card-bg': '#111827',
+                        primary: '#6366F1',
+                        secondary: '#22C55E',
+                        'text-primary': '#F9FAFB',
+                        'text-secondary': '#9CA3AF'
+                    },
+                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="js/register.js"></script>
+</head>
+<body class="bg-background text-text-primary font-sans antialiased min-h-screen flex items-center justify-center relative overflow-hidden py-12">
+    
+    <div class="w-full max-w-md p-8">
+        <div class="text-center mb-8">
+            <a href="index.html" class="inline-block mb-6">
+                <div class="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary to-secondary shadow-xl mx-auto"></div>
+            </a>
+            <h1 class="text-3xl font-bold">Crea tu cuenta</h1>
+            <p class="text-text-secondary mt-2">Empieza a optimizar tu contenido hoy</p>
+        </div>
+
+        <form class="bg-card-bg p-8 rounded-3xl border border-card-bg/50 shadow-2xl space-y-6">
+            <div>
+                <label for="email" class="block text-sm font-medium text-text-secondary mb-2">Email</label>
+                <input type="email" id="email" class="w-full bg-background border border-card-bg/50 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" required>
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-text-secondary mb-2">Contraseña</label>
+                <input type="password" id="password" class="w-full bg-background border border-card-bg/50 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" required>
+            </div>
+            <div>
+                <label for="plan" class="block text-sm font-medium text-text-secondary mb-2">Plan seleccionado</label>
+                <select id="plan" class="w-full bg-background border border-card-bg/50 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors">
+                    <option>Starter</option>
+                    <option>Growth</option>
+                    <option>Boost</option>
+                </select>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">Continuar al pago</button>
+        </form>
+        
+        <p class="text-center mt-6 text-text-secondary text-sm">
+            Resultados 100% asegurados. Devolución en 30 días.
+        </p>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

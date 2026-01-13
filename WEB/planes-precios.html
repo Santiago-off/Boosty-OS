@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosty OS - Planes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0B0F19',
+                        'card-bg': '#111827',
+                        primary: '#6366F1',
+                        secondary: '#22C55E',
+                        'text-primary': '#F9FAFB',
+                        'text-secondary': '#9CA3AF'
+                    },
+                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/planes-precios.css">
+</head>
+<body class="bg-background text-text-primary font-sans antialiased min-h-screen flex flex-col">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 w-full border-b border-card-bg/20 bg-background/95 backdrop-blur">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary to-secondary shadow-xl transition-all group-hover:scale-105"></div>
+                    <div>
+                        <h1 class="text-2xl font-bold tracking-tight text-white">Boosty OS</h1>
+                        <p class="text-xs text-text-secondary font-medium">by Quro Agency</p>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-text-secondary hover:text-text-primary transition-colors font-medium">Inicio</a>
+                    <a href="servicios.html" class="text-text-secondary hover:text-text-primary transition-colors font-medium">Servicios</a>
+                    <a href="planes-precios.html" class="text-text-primary font-medium">Planes</a>
+                    <a href="casos-reales.html" class="text-text-secondary hover:text-text-primary transition-colors font-medium">Casos reales</a>
+                    <a href="agencias.html" class="text-text-secondary hover:text-text-primary transition-colors font-medium">Agencias</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="login.html" class="text-text-secondary hover:text-text-primary font-medium transition-colors">Iniciar sesión</a>
+                    <a href="planes-precios.html" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">Ver planes</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-card-bg transition-colors">
+                    <svg class="w-6 h-6 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </nav>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-card-bg border-t border-card-bg/50">
+            <div class="px-6 py-4 space-y-4">
+                <a href="index.html" class="block py-2 text-text-secondary hover:text-text-primary font-medium">Inicio</a>
+                <a href="servicios.html" class="block py-2 text-text-secondary hover:text-text-primary font-medium">Servicios</a>
+                <a href="planes-precios.html" class="block py-2 text-text-primary font-medium">Planes</a>
+                <a href="casos-reales.html" class="block py-2 text-text-secondary hover:text-text-primary font-medium">Casos reales</a>
+                <a href="agencias.html" class="block py-2 text-text-secondary hover:text-text-primary font-medium">Agencias</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-32">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h1 class="text-5xl md:text-6xl font-bold mb-8">Planes para creadores y marcas</h1>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+                    Elige el plan que mejor se adapta al volumen de contenido y estructura de tu equipo.
+                </p>
+            </div>
+
+            <!-- Toggle Creadores/Agencias -->
+            <div class="flex justify-center mb-16">
+                <div class="bg-card-bg border border-card-bg/50 rounded-2xl p-1 flex">
+                    <button class="px-6 py-3 font-semibold rounded-xl bg-primary text-white shadow-lg">Creadores</button>
+                    <a href="agencias.html" class="px-6 py-3 font-semibold text-text-secondary hover:text-text-primary transition-colors">Agencias</a>
+                </div>
+            </div>
+
+            <!-- Planes Cards - Creadores -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Starter -->
+                <div class="bg-card-bg rounded-3xl p-10 border-2 border-card-bg/50 hover:border-primary/50 transition-all hover:shadow-2xl group">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold mb-2">Starter</h3>
+                        <div class="text-4xl font-bold text-primary mb-1">$5</div>
+                        <p class="text-text-secondary">/ mes</p>
+                    </div>
+                    <div class="space-y-4 mb-10">
+                        <div class="flex items-center space-x-3 p-3 bg-primary/10 rounded-xl">
+                            <div class="w-6 h-6 bg-primary rounded-lg flex items-center justify-center text-white text-sm">✓</div>
+                            <span>Hasta 2 perfiles</span>
+                        </div>
+                        <div class="flex items-center space-x-3 p-3 bg-card-bg rounded-xl">
+                            <div class="w-6 h-6 bg-card-bg border border-text-secondary/30 rounded-lg flex items-center justify-center text-text-secondary text-sm">✓</div>
+                            <span>Análisis básico</span>
+                        </div>
+                    </div>
+                    <a href="register.html" class="w-full bg-primary hover:bg-primary/90 text-white py-4 px-8 rounded-xl font-bold block text-center transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                        Empezar con Starter
+                    </a>
+                </div>
+                <!-- More cards would go here -->
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/planes-precios.js"></script>
+</body>
+</html>

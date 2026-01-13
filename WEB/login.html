@@ -1,0 +1,67 @@
+<!-- login.html (/login) -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosty OS - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0B0F19',
+                        'card-bg': '#111827',
+                        primary: '#6366F1',
+                        secondary: '#22C55E',
+                        'text-primary': '#F9FAFB',
+                        'text-secondary': '#9CA3AF'
+                    },
+                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="bg-background text-text-primary font-sans antialiased min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <div class="absolute top-[-10%] left-[-10%] w-1/2 h-1/2 bg-primary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-1/2 h-1/2 bg-secondary/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="w-full max-w-md p-8">
+        <div class="text-center mb-8">
+            <a href="index.html" class="inline-block mb-6">
+                <div class="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary to-secondary shadow-xl mx-auto"></div>
+            </a>
+            <h1 class="text-3xl font-bold">Bienvenido de nuevo</h1>
+            <p class="text-text-secondary mt-2">Ingresa a tu panel de control</p>
+        </div>
+
+        <form class="bg-card-bg p-8 rounded-3xl border border-card-bg/50 shadow-2xl space-y-6">
+            <div>
+                <label for="email" class="block text-sm font-medium text-text-secondary mb-2">Email</label>
+                <input type="email" id="email" class="w-full bg-background border border-card-bg/50 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" placeholder="tu@email.com" required>
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-text-secondary mb-2">Contraseña</label>
+                <input type="password" id="password" class="w-full bg-background border border-card-bg/50 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">Iniciar sesión</button>
+        </form>
+        
+        <p class="text-center mt-6 text-text-secondary">
+            ¿No tienes cuenta? <a href="register.html" class="text-primary hover:text-white font-medium">Regístrate</a>
+        </p>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

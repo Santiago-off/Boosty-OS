@@ -1,0 +1,72 @@
+<!-- faq.html (/faq) -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosty OS - FAQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0B0F19',
+                        'card-bg': '#111827',
+                        primary: '#6366F1',
+                        secondary: '#22C55E',
+                        'text-primary': '#F9FAFB',
+                        'text-secondary': '#9CA3AF'
+                    },
+                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/faq.css">
+</head>
+<body class="bg-background text-text-primary font-sans antialiased min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 w-full border-b border-card-bg/20 bg-background/95 backdrop-blur">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary to-secondary"></div>
+                    <span class="text-2xl font-bold text-white">Boosty OS</span>
+                </a>
+                <a href="index.html" class="text-text-secondary hover:text-white">Volver al inicio</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-6 py-20 max-w-3xl">
+        <h1 class="text-4xl font-bold mb-12 text-center">Preguntas Frecuentes</h1>
+        
+        <div class="space-y-6">
+            <div class="bg-card-bg p-6 rounded-2xl border border-card-bg/50">
+                <h3 class="text-xl font-bold mb-2">¿Es seguro?</h3>
+                <p class="text-text-secondary">Sí, trabajamos con optimización y análisis de datos públicos y de tu cuenta sin violar las políticas de ninguna plataforma.</p>
+            </div>
+
+            <div class="bg-card-bg p-6 rounded-2xl border border-card-bg/50">
+                <h3 class="text-xl font-bold mb-2">¿Cuándo veo resultados?</h3>
+                <p class="text-text-secondary">Depende del nicho y la constancia, pero nuestros usuarios reportan mejoras significativas en alcance y retención en las primeras 2-3 semanas.</p>
+            </div>
+
+            <div class="bg-card-bg p-6 rounded-2xl border border-card-bg/50">
+                <h3 class="text-xl font-bold mb-2">¿Garantizan resultados?</h3>
+                <p class="text-text-secondary">Garantizamos la optimización de tu estrategia. Si sigues el plan y no ves mejoras en 30 días, te devolvemos tu dinero.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-card-bg border-t border-card-bg/50 py-12 mt-auto text-center">
+        <p class="text-text-secondary">© 2026 Boosty OS. Soporte vía WhatsApp.</p>
+    </footer>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/faq.js"></script>
+</body>
+</html>

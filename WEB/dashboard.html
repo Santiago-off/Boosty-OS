@@ -1,0 +1,113 @@
+<!-- dashboard.html (/dashboard) -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosty OS - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0B0F19',
+                        'card-bg': '#111827',
+                        primary: '#6366F1',
+                        secondary: '#22C55E',
+                        'text-primary': '#F9FAFB',
+                        'text-secondary': '#9CA3AF'
+                    },
+                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="bg-background text-text-primary font-sans antialiased min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-card-bg border-r border-card-bg/50 hidden md:flex flex-col p-6">
+        <div class="flex items-center space-x-3 mb-10">
+            <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-secondary"></div>
+            <span class="font-bold text-lg">Boosty OS</span>
+        </div>
+        <nav class="space-y-2">
+            <a href="#" class="block px-4 py-2 bg-primary/10 text-primary rounded-xl font-medium">Dashboard</a>
+            <a href="#" class="block px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-card-bg/50 rounded-xl transition-colors">Análisis</a>
+            <a href="#" class="block px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-card-bg/50 rounded-xl transition-colors">Configuración</a>
+        </nav>
+        <div class="mt-auto pt-6 border-t border-card-bg/50">
+            <div class="text-sm text-text-secondary mb-4">
+                <p>Plan: <span id="user-plan" class="text-white font-semibold">Cargando...</span></p>
+                <p id="user-renewal" class="text-xs mt-1">Renueva: --/--/----</p>
+            </div>
+            <button id="logout-btn" class="flex items-center text-text-secondary hover:text-red-400 transition-colors text-sm font-medium w-full">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                Cerrar sesión
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 overflow-y-auto">
+        <header class="flex justify-between items-center mb-10">
+            <h1 class="text-3xl font-bold">Panel de Control</h1>
+            <div class="flex items-center gap-4">
+                <span id="user-email" class="text-sm font-medium text-text-secondary hidden sm:block"></span>
+                <div id="user-initials" class="h-10 w-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold shadow-lg border border-white/10">
+                    <!-- Iniciales JS -->
+                </div>
+            </div>
+        </header>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Request Analysis -->
+            <div class="lg:col-span-2 bg-card-bg p-8 rounded-3xl border border-card-bg/50">
+                <h2 class="text-xl font-bold mb-6">Nuevo Análisis</h2>
+                <form class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm text-text-secondary mb-2">Plataforma</label>
+                            <select class="w-full bg-background border border-card-bg/50 rounded-xl px-4 py-3 text-white">
+                                <option>Instagram</option>
+                                <option>TikTok</option>
+                                <option>YouTube</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-text-secondary mb-2">Nicho</label>
+                            <input type="text" class="w-full bg-background border border-card-bg/50 rounded-xl px-4 py-3 text-white" placeholder="Ej: Fitness">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-text-secondary mb-2">Link o Contenido</label>
+                        <input type="text" class="w-full bg-background border border-card-bg/50 rounded-xl px-4 py-3 text-white" placeholder="Pegar URL o texto aquí">
+                    </div>
+                    <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl font-bold transition-all">Analizar ahora</button>
+                </form>
+            </div>
+
+            <!-- History -->
+            <div class="bg-card-bg p-8 rounded-3xl border border-card-bg/50">
+                <h2 class="text-xl font-bold mb-6">Historial Reciente</h2>
+                <div class="space-y-4">
+                    <div class="p-4 bg-background/50 rounded-xl border border-card-bg/50">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-semibold">Instagram Fitness</span>
+                            <span class="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded-full">Completado</span>
+                        </div>
+                        <p class="text-sm text-text-secondary">Recomendación: Optimizar hooks en primeros 3s...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

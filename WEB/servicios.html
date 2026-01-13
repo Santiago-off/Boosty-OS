@@ -1,0 +1,97 @@
+<!-- servicios.html (/servicios) -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosty OS - Servicios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0B0F19',
+                        'card-bg': '#111827',
+                        primary: '#6366F1',
+                        secondary: '#22C55E',
+                        'text-primary': '#F9FAFB',
+                        'text-secondary': '#9CA3AF'
+                    },
+                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/servicios.css">
+</head>
+<body class="bg-background text-text-primary font-sans antialiased min-h-screen flex flex-col">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 w-full border-b border-card-bg/20 bg-background/95 backdrop-blur">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary to-secondary shadow-xl transition-all group-hover:scale-105"></div>
+                    <div>
+                        <h1 class="text-2xl font-bold tracking-tight text-white">Boosty OS</h1>
+                        <p class="text-xs text-text-secondary font-medium">by Quro Agency</p>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-text-secondary hover:text-text-primary transition-colors font-medium">Inicio</a>
+                    <a href="servicios.html" class="text-text-primary font-medium">Servicios</a>
+                    <a href="planes-precios.html" class="text-text-secondary hover:text-text-primary transition-colors font-medium">Planes</a>
+                    <a href="casos-reales.html" class="text-text-secondary hover:text-text-primary transition-colors font-medium">Casos reales</a>
+                    <a href="agencias.html" class="text-text-secondary hover:text-text-primary transition-colors font-medium">Agencias</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="login.html" class="text-text-secondary hover:text-text-primary font-medium transition-colors">Iniciar sesión</a>
+                    <a href="planes-precios.html" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">Ver planes</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl font-bold text-center mb-20">Nuestros Servicios</h1>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Creadores -->
+                <div class="bg-card-bg p-10 rounded-3xl border border-card-bg/50">
+                    <h2 class="text-3xl font-bold mb-8 text-primary">Para Creadores</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-lg"><span class="w-2 h-2 bg-primary rounded-full mr-4"></span>Optimización de videos</li>
+                        <li class="flex items-center text-lg"><span class="w-2 h-2 bg-primary rounded-full mr-4"></span>Hooks de apertura virales</li>
+                        <li class="flex items-center text-lg"><span class="w-2 h-2 bg-primary rounded-full mr-4"></span>Copywriting optimizado</li>
+                        <li class="flex items-center text-lg"><span class="w-2 h-2 bg-primary rounded-full mr-4"></span>Estrategia de Hashtags</li>
+                        <li class="flex items-center text-lg"><span class="w-2 h-2 bg-primary rounded-full mr-4"></span>Timing de publicación</li>
+                        <li class="flex items-center text-lg"><span class="w-2 h-2 bg-primary rounded-full mr-4"></span>Estructura de monetización</li>
+                    </ul>
+                </div>
+
+                <!-- Marcas -->
+                <div class="bg-card-bg p-10 rounded-3xl border border-card-bg/50">
+                    <h2 class="text-3xl font-bold mb-8 text-secondary">Para Marcas</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-lg"><span class="w-2 h-2 bg-secondary rounded-full mr-4"></span>Optimización comercial</li>
+                        <li class="flex items-center text-lg"><span class="w-2 h-2 bg-secondary rounded-full mr-4"></span>Mejora de conversión (CRO)</li>
+                        <li class="flex items-center text-lg"><span class="w-2 h-2 bg-secondary rounded-full mr-4"></span>Ajuste de mensaje de marca</li>
+                        <li class="flex items-center text-lg"><span class="w-2 h-2 bg-secondary rounded-full mr-4"></span>Contenido orientado a ventas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-card-bg border-t border-card-bg/50 py-12 mt-auto text-center">
+        <p class="text-text-secondary">© 2026 Boosty OS. Resultados asegurados.</p>
+    </footer>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/servicios.js"></script>
+</body>
+</html>
