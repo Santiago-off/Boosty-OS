@@ -1,3 +1,9 @@
 [build]
-  publish = "."
+  # No se necesita un comando de construcción para un sitio estático simple.
   command = ""
+  # Indica que la web está dentro de la carpeta WEB
+  publish = "WEB"
+
+# Directorio estándar para las Netlify Functions, si decides usarlas.
+[functions]
+  directory = "netlify/functions"
