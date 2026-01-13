@@ -26,13 +26,14 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 <body class="bg-background text-text-primary font-sans antialiased min-h-screen flex items-center justify-center relative overflow-hidden py-12">
     
-    <div class="w-full max-w-md p-8">
+    <div class="w-full max-w-md p-8 scale-in">
         <div class="text-center mb-8">
             <a href="index.html" class="inline-block mb-6">
-                <div class="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary to-secondary shadow-xl mx-auto"></div>
+                <img src="Imagenes/logo.jpeg" alt="Boosty OS" class="h-16 w-16 rounded-2xl shadow-xl mx-auto object-cover">
             </a>
             <h1 class="text-3xl font-bold">Crea tu cuenta</h1>
             <p class="text-text-secondary mt-2">Empieza a optimizar tu contenido hoy</p>
@@ -65,6 +66,7 @@
 
     <script type="module" src="js/firebase-config.js"></script>
     <script src="js/security.js"></script>
+    <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
     <script type="module" src="js/register.js"></script>
 </body>

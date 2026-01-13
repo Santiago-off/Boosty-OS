@@ -26,6 +26,7 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 <body class="bg-background text-text-primary font-sans antialiased min-h-screen flex flex-col">
     <!-- HEADER -->
@@ -33,7 +34,7 @@
         <div class="container mx-auto px-6 py-4">
             <nav class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center space-x-3 group">
-                    <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary to-secondary shadow-xl transition-all group-hover:scale-105"></div>
+                    <img src="Imagenes/logo.jpeg" alt="Boosty OS" class="h-12 w-12 rounded-2xl shadow-xl transition-all group-hover:scale-105 object-cover">
                     <div>
                         <h1 class="text-2xl font-bold tracking-tight text-white">Boosty OS</h1>
                         <p class="text-xs text-text-secondary font-medium">by Quro Agency</p>
@@ -68,12 +69,12 @@
 
     <section class="py-24">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-20">
+            <div class="text-center mb-20 reveal-up">
                 <h1 class="text-5xl font-bold mb-6">Nuestros Servicios</h1>
                 <p class="text-xl text-text-secondary max-w-2xl mx-auto">Soluciones específicas para potenciar cada aspecto de tu presencia digital.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto scale-in delay-200">
                 <!-- Service 1 -->
                 <div class="bg-card-bg p-8 rounded-3xl border border-card-bg/50 hover:border-primary/50 transition-all hover:shadow-2xl group">
                     <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6 text-2xl">📊</div>
@@ -108,6 +109,7 @@
 
     <script type="module" src="js/firebase-config.js"></script>
     <script src="js/security.js"></script>
+    <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -27,6 +27,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/agencias.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 <body class="bg-background text-text-primary font-sans antialiased min-h-screen flex flex-col">
     <!-- HEADER -->
@@ -34,7 +35,7 @@
         <div class="container mx-auto px-6 py-4">
             <nav class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center space-x-3 group">
-                    <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary to-secondary shadow-xl transition-all group-hover:scale-105"></div>
+                    <img src="Imagenes/logo.jpeg" alt="Boosty OS" class="h-12 w-12 rounded-2xl shadow-xl transition-all group-hover:scale-105 object-cover">
                     <div>
                         <h1 class="text-2xl font-bold tracking-tight text-white">Boosty OS</h1>
                         <p class="text-xs text-text-secondary font-medium">by Quro Agency</p>
@@ -69,12 +70,12 @@
 
     <div class="section py-32">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-24">
+            <div class="text-center mb-24 reveal-up">
                 <h1 class="text-5xl md:text-6xl font-bold mb-8">Planes para Agencias</h1>
                 <p class="text-xl text-text-secondary max-w-2xl mx-auto">Escala tu agencia con herramientas de análisis y generación de leads automatizada.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto scale-in delay-200">
                 <!-- Starter Agency -->
                 <div class="bg-card-bg rounded-3xl p-10 border border-card-bg/50 hover:border-primary/50 transition-all hover:shadow-2xl group">
                     <h3 class="text-2xl font-bold mb-4">Starter Agency</h3>
@@ -120,6 +121,7 @@
 
     <script type="module" src="js/firebase-config.js"></script>
     <script src="js/security.js"></script>
+    <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
     <script src="js/agencias.js"></script>
 </body>

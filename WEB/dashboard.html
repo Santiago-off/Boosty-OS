@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boosty OS - Dashboard</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="Imagenes/logo.jpeg">
+    
     <!-- Anti-AI & Security -->
     <meta name="robots" content="noindex, nofollow, noai, noimageai">
     
@@ -30,12 +33,13 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 <body class="bg-background text-text-primary font-sans antialiased min-h-screen flex">
     <!-- Sidebar -->
     <aside class="w-64 bg-card-bg border-r border-card-bg/50 hidden md:flex flex-col p-6">
         <div class="flex items-center space-x-3 mb-10">
-            <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-secondary"></div>
+            <img src="Imagenes/logo.jpeg" alt="Boosty OS" class="h-8 w-8 rounded-lg object-cover">
             <span class="font-bold text-lg">Boosty OS</span>
         </div>
         <nav class="space-y-2">
@@ -69,7 +73,7 @@
 
         <!-- SECCIÓN: DASHBOARD (Visible por defecto) -->
         <div id="section-dashboard" class="section-content">
-            <div class="grid lg:grid-cols-3 gap-8">
+            <div class="grid lg:grid-cols-3 gap-8 reveal-up">
                 <!-- Request Analysis Form -->
                 <div class="lg:col-span-2 bg-card-bg p-8 rounded-3xl border border-card-bg/50">
                     <h2 class="text-xl font-bold mb-6">Nuevo Análisis</h2>
@@ -108,7 +112,7 @@
 
         <!-- SECCIÓN: ANÁLISIS (Oculta por defecto) -->
         <div id="section-analysis" class="section-content hidden">
-            <div class="grid gap-8">
+            <div class="grid gap-8 reveal-up">
                 <!-- Mensajes del Admin -->
                 <div class="bg-card-bg p-8 rounded-3xl border border-card-bg/50">
                     <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
@@ -135,7 +139,7 @@
 
         <!-- SECCIÓN: CONFIGURACIÓN (Oculta por defecto) -->
         <div id="section-settings" class="section-content hidden">
-            <div class="max-w-2xl bg-card-bg p-8 rounded-3xl border border-card-bg/50">
+            <div class="max-w-2xl bg-card-bg p-8 rounded-3xl border border-card-bg/50 reveal-up">
                 <h2 class="text-xl font-bold mb-6">Configuración de Cuenta</h2>
                 <form id="settings-form" class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
@@ -192,6 +196,7 @@
 
     <script type="module" src="js/firebase-config.js"></script>
     <script src="js/security.js"></script>
+    <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
     <script type="module" src="js/dashboard.js"></script>
 </body>
