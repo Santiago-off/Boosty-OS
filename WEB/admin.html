@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosty OS - Admin Panel</title>
+    
+    <link rel="icon" type="image/jpeg" href="Imagenes/logo.jpeg">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0B0F19',
+                        'card-bg': '#111827',
+                        primary: '#6366F1',
+                        secondary: '#22C55E',
+                        'text-primary': '#F9FAFB',
+                        'text-secondary': '#9CA3AF',
+                        danger: '#EF4444'
+                    },
+                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="bg-background text-text-primary font-sans antialiased min-h-screen flex">
+    <!-- Sidebar Admin -->
+    <aside class="w-64 bg-card-bg border-r border-card-bg/50 hidden md:flex flex-col p-6">
+        <div class="flex items-center space-x-3 mb-10">
+            <img src="Imagenes/logo.jpeg" alt="Boosty OS" class="h-8 w-8 rounded-lg object-cover">
+            <span class="font-bold text-lg text-red-400">Admin Panel</span>
+        </div>
+        <nav class="space-y-2">
+            <button id="nav-overview" class="w-full text-left px-4 py-2 bg-primary/10 text-primary rounded-xl font-medium transition-colors">Resumen</button>
+            <button id="nav-requests" class="w-full text-left px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-card-bg/50 rounded-xl transition-colors">Solicitudes</button>
+        </nav>
+        <div class="mt-auto pt-6 border-t border-card-bg/50">
+            <button id="logout-btn" class="flex items-center text-text-secondary hover:text-red-400 transition-colors text-sm font-medium w-full">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                Cerrar sesión
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 overflow-y-auto">
+        <header class="flex justify-between items-center mb-10">
+            <h1 id="page-title" class="text-3xl font-bold">Resumen del Sistema</h1>
+            <div class="text-sm text-text-secondary">Modo Administrador</div>
+        </header>
+
+        <!-- SECCIÓN: RESUMEN (Métricas) -->
+        <div id="section-overview" class="section-content">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-up">
+                <!-- Card Usuarios -->
+                <div class="bg-card-bg p-6 rounded-3xl border border-card-bg/50">
+                    <h3 class="text-text-secondary text-sm font-medium mb-2">Total Usuarios</h3>
+                    <p id="stat-users" class="text-4xl font-bold text-white">...</p>
+                </div>
+                <!-- Card Pendientes -->
+                <div class="bg-card-bg p-6 rounded-3xl border border-card-bg/50">
+                    <h3 class="text-text-secondary text-sm font-medium mb-2">Solicitudes Pendientes</h3>
+                    <p id="stat-pending" class="text-4xl font-bold text-yellow-400">...</p>
+                </div>
+                <!-- Card Completados -->
+                <div class="bg-card-bg p-6 rounded-3xl border border-card-bg/50">
+                    <h3 class="text-text-secondary text-sm font-medium mb-2">Análisis Completados</h3>
+                    <p id="stat-completed" class="text-4xl font-bold text-secondary">...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: SOLICITUDES (Gestión) -->
+        <div id="section-requests" class="section-content hidden">
+            <div class="bg-card-bg p-8 rounded-3xl border border-card-bg/50">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold">Cola de Análisis</h2>
+                    <button id="refresh-btn" class="text-sm bg-card-bg border border-card-bg/50 px-3 py-1 rounded-lg hover:bg-white/5 transition-colors">Actualizar</button>
+                </div>
+                
+                <div id="requests-list" class="space-y-6">
+                    <p class="text-text-secondary text-center py-10">Cargando solicitudes...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Respuesta (Oculto por defecto) -->
+    <div id="response-modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 backdrop-blur-sm">
+        <div class="bg-card-bg p-8 rounded-3xl border border-card-bg/50 w-full max-w-lg mx-4">
+            <h3 class="text-xl font-bold mb-4">Responder Análisis</h3>
+            <div class="mb-4 p-4 bg-background rounded-xl text-sm text-text-secondary" id="modal-context">
+                <!-- Contexto de la solicitud -->
+            </div>
+            <textarea id="admin-response-text" class="w-full bg-background border border-card-bg/50 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary h-32 mb-4" placeholder="Escribe tu análisis y recomendaciones aquí..."></textarea>
+            <div class="flex justify-end gap-3">
+                <button id="close-modal" class="px-4 py-2 text-text-secondary hover:text-white transition-colors">Cancelar</button>
+                <button id="send-response" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-xl font-bold transition-all">Enviar Respuesta</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>
