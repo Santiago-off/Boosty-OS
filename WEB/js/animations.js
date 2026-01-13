@@ -1,7 +1,3 @@
-/**
- * Boosty OS Animation Controller
- * Maneja la aparición de elementos al hacer scroll.
- */
 
 document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {

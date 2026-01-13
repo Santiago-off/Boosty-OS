@@ -1,7 +1,3 @@
-/**
- * Boosty OS Security Module
- * Protecciones contra inspección, depuración y bots.
- */
 
 // 1. Deshabilitar Click Derecho (Context Menu)
 document.addEventListener('contextmenu', (e) => e.preventDefault());
