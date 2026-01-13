@@ -1,9 +1,6 @@
 # Archivos de configuración y credenciales sensibles
 # ¡NUNCA subas estos archivos a un repositorio público!
 
-# Contiene las API Keys de Firebase
-js/firebase-config.js
-
 # Reglas de seguridad de la base de datos
 firestore.rules
 
