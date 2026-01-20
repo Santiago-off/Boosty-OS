@@ -25,7 +25,6 @@ document.querySelector('form').addEventListener('submit', async function(e) {
         await setDoc(doc(db, "users", user.uid), {
             email: email,
             plan: plan,
-            role: 'user', // Rol por defecto para nuevos usuarios
             createdAt: new Date().toISOString()
         });
 
