@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Boosty OS",
+    "output": "arquitectura.html",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "publico",
+        "label": "Parte pública",
+        "focus": ["visitante", "sitio"],
+        "note": "Doce páginas estáticas servidas tal cual: sin framework, sin compilación y sin servidor propio."
+      },
+      {
+        "id": "acceso",
+        "label": "Acceso",
+        "focus": ["sitio", "auth", "reglas", "usuarios"],
+        "note": "Firebase Auth resuelve la sesión y el rol se comprueba contra el documento del usuario."
+      },
+      {
+        "id": "datos",
+        "label": "Datos del cliente",
+        "focus": ["reglas", "analisis", "eventos"],
+        "note": "Cada análisis y cada evento llevan el identificador de su dueño, y las reglas filtran por él."
+      }
+    ]
+  },
+  "components": [
+    { "id": "visitante", "type": "external", "label": "Visitante", "sublabel": "Navegador", "pos": [40, 353], "size": [155, 60] },
+    { "id": "sitio", "type": "frontend", "label": "Sitio y panel", "sublabel": "HTML · CSS · JS", "pos": [300, 350], "size": [185, 66], "tag": "12 páginas" },
+    { "id": "auth", "type": "security", "label": "Firebase Auth", "sublabel": "sesión", "pos": [620, 150], "size": [190, 62] },
+    { "id": "reglas", "type": "security", "label": "Reglas de Firestore", "sublabel": "autorización", "pos": [620, 350], "size": [190, 66] },
+    { "id": "usuarios", "type": "database", "label": "users", "sublabel": "perfil y rol", "pos": [1080, 240], "size": [155, 56] },
+    { "id": "analisis", "type": "database", "label": "analyses", "sublabel": "peticiones", "pos": [1080, 355], "size": [155, 56] },
+    { "id": "eventos", "type": "database", "label": "events", "sublabel": "calendario", "pos": [1080, 470], "size": [155, 56] }
+  ],
+  "boundaries": [
+    { "kind": "security-group", "label": "Firestore · acceso por reglas", "wraps": ["usuarios", "analisis", "eventos"] }
+  ],
+  "connections": [
+    { "id": "entrada", "from": "visitante", "to": "sitio", "label": "HTTPS", "variant": "emphasis" },
+    { "id": "sesion", "from": "sitio", "to": "auth", "label": "registro y acceso", "variant": "security", "fromSide": "top", "toSide": "left", "labelAt": [545, 255] },
+    { "id": "consulta", "from": "sitio", "to": "reglas", "label": "consultas", "variant": "emphasis", "labelAt": [552, 368] },
+    { "id": "c-usuarios", "from": "reglas", "to": "usuarios", "label": "rol en servidor", "variant": "security", "via": [[850, 383], [850, 268]], "labelAt": [975, 268] },
+    { "id": "c-analisis", "from": "reglas", "to": "analisis", "label": "solo los propios", "labelAt": [975, 383] },
+    { "id": "c-eventos", "from": "reglas", "to": "eventos", "via": [[850, 383], [850, 498]] }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "El sitio",
+      "items": [
+        "Doce páginas en HTML plano, sin framework ni compilación",
+        "Zona pública, panel de cliente y panel de administración",
+        "Desplegado en Netlify como ficheros estáticos"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Los datos",
+      "items": [
+        "users: perfil, rol y plan contratado",
+        "analyses: peticiones del cliente y respuesta del equipo",
+        "events: calendario asociado a cada cliente"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Las reglas",
+      "items": [
+        "El registro obliga a que el rol creado sea 'user'",
+        "El usuario no puede modificar su propio rol ni su plan",
+        "Solo la administración puede responder a un análisis"
+      ]
+    }
+  ]
+}
